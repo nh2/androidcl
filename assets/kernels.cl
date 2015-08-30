@@ -1,4 +1,4 @@
-#define BLK_SIZE    16
+#define BLK_SIZE    4
 //prefix D for decoding
 #define DSHRD_LEN   (BLK_SIZE/2)
 #define DSHRD_SIZE  (2*DSHRD_LEN*DSHRD_LEN)

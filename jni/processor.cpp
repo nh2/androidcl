@@ -110,8 +110,10 @@ void helper(uint32_t* out, int osize, uint8_t* in, int isize, int w, int h, int 
         gNV21Kernel.setArg(0,bufferOut);
         gQueue.enqueueNDRangeKernel(gNV21Kernel,
                 cl::NullRange,
-                cl::NDRange( (int)ceil((float)w/16.0f)*16,(int)ceil((float)h/16.0f)*16),
-                cl::NDRange(16,16),
+                cl::NDRange( (int)ceil((float)w/4.0f)*4,(int)ceil((float)h/4.0f)*4),
+                cl::NDRange(4,4),
+                // cl::NDRange(w, h),
+                // cl::NullRange,
                 NULL,
                 NULL);
         if (choice>0) {
@@ -121,8 +123,10 @@ void helper(uint32_t* out, int osize, uint8_t* in, int isize, int w, int h, int 
             gLaplacianK.setArg(0,bufferOut2);
             gQueue.enqueueNDRangeKernel(gLaplacianK,
                     cl::NullRange,
-                    cl::NDRange( (int)ceil((float)w/16.0f)*16,(int)ceil((float)h/16.0f)*16),
-                    cl::NDRange(16,16),
+                    cl::NDRange( (int)ceil((float)w/4.0f)*4,(int)ceil((float)h/4.0f)*4),
+                    cl::NDRange(4,4),
+                    // cl::NDRange(w, h),
+                    // cl::NullRange,
                     NULL,
                     NULL);
         }
