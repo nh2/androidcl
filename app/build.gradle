@@ -11,6 +11,8 @@ android {
 
         ndk {
             moduleName "JNIProcessor"
+            stl "gnustl_static"
+            cFlags "-I${project.buildDir}/../src/main/jni/include"
         }
     }
 
